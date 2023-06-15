@@ -1,6 +1,7 @@
 package com.johs.top_artistas.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.johs.top_artistas.ArtistInfoActivity;
 import com.johs.top_artistas.R;
 import com.johs.top_artistas.models.Artist;
 
@@ -54,6 +56,16 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
             imageArtist = itemView.findViewById(R.id.imageArtist);
             nameArtist = itemView.findViewById(R.id.nameArtist);
             listenersArtist = itemView.findViewById(R.id.listenersArtist);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Context context = view.getContext();
+                    Intent intent = new Intent(context, ArtistInfoActivity.class);
+                    intent.putExtra("ID", listaArtists.get(getAdapterPosition()).getId());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

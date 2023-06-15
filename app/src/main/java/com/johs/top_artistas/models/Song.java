@@ -7,6 +7,13 @@ public class Song {
     private String listeners;
     private String plays;
 
+    public Song(String image, String name, String listeners, String plays) {
+        this.image = image;
+        this.name = name;
+        this.listeners = listeners;
+        this.plays = plays;
+    }
+
     public String getImage() {
         return image;
     }
