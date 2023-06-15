@@ -2,23 +2,23 @@ package com.johs.top_artistas.models;
 
 public class Artist {
 
-    private int id;
+    private String id;
     private String image;
     private String name;
     private String listeners;
 
-    public Artist(int id, String image, String name, String listeners) {
+    public Artist(String id, String image, String name, String listeners) {
         this.id = id;
         this.image = image;
         this.name = name;
         this.listeners = listeners;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

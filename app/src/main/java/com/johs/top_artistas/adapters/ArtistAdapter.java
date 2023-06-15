@@ -38,6 +38,7 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
     public void onBindViewHolder(@NonNull ArtistAdapter.ArtistViewHolder holder, int position) {
         holder.nameArtist.setText(listaArtists.get(position).getName());
         holder.listenersArtist.setText(listaArtists.get(position).getListeners());
+        holder.idRank.setText(listaArtists.get(position).getId());
 
     }
 
@@ -50,19 +51,23 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
         ImageView imageArtist;
         TextView nameArtist;
         TextView listenersArtist;
+        TextView idRank;
 
         public ArtistViewHolder(@NonNull View itemView) {
             super(itemView);
             imageArtist = itemView.findViewById(R.id.imageArtist);
             nameArtist = itemView.findViewById(R.id.nameArtist);
             listenersArtist = itemView.findViewById(R.id.listenersArtist);
+            idRank = itemView.findViewById(R.id.idRank);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Context context = view.getContext();
                     Intent intent = new Intent(context, ArtistInfoActivity.class);
-                    intent.putExtra("ID", listaArtists.get(getAdapterPosition()).getId());
+                    intent.putExtra("nameArtist", listaArtists.get(getAdapterPosition()).getName());
+                    intent.putExtra("listenersArtist", listaArtists.get(getAdapterPosition()).getListeners());
+                    intent.putExtra("imageArtist", listaArtists.get(getAdapterPosition()).getImage());
                     context.startActivity(intent);
                 }
             });
