@@ -59,11 +59,11 @@ Para comenzar a utilizar este proyecto, sigue los siguientes pasos:
 - Abre la aplicación en tu dispositivo Android.
 - En la pantalla principal, encontrarás una lista de los 10 artistas más escuchados.
 
-    ![Paso 1](imagenMuestra1.jpg "Paso 1: Lista de los 10 artistas más escuchados.")
+    <img src="imagenMuestra1.jpg" alt="Paso 1: Lista de los 10 artistas más escuchados." width="200px">
 
 - Selecciona alguno de los artistas para ver sus 5 canciones más escuchadas.
 
-   ![Paso 2](imagenMuestra2.jpg "Paso 2: Selecciona alguno de los artistas para ver sus 5 canciones más escuchadas.")
+   <img src="imagenMuestra2.jpg" alt="Paso 2: Selecciona alguno de los artistas para ver sus 5 canciones más escuchadas." width="200px">
 
 ## Contacto
 
