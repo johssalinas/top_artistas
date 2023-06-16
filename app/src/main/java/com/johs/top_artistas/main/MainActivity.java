@@ -1,25 +1,14 @@
-package com.johs.top_artistas;
+package com.johs.top_artistas.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.os.Bundle;
 
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
+import com.johs.top_artistas.R;
 import com.johs.top_artistas.adapters.ArtistAdapter;
-import com.johs.top_artistas.models.Artist;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.johs.top_artistas.entity.Artist;
 
 import java.util.ArrayList;
 
@@ -39,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements IMainContract.Vie
         listArtist = new ArrayList<>();
         presenter = new MainPresenter(this);
 
-        presenter.getData(listArtist, this);
+        presenter.getArtist(listArtist, this);
     }
 
     @Override

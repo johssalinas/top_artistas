@@ -1,4 +1,4 @@
-package com.johs.top_artistas;
+package com.johs.top_artistas.main;
 
 import android.content.Context;
 import android.widget.Toast;
@@ -7,7 +7,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.johs.top_artistas.models.Artist;
+import com.johs.top_artistas.entity.Artist;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,7 +23,7 @@ public class MainModel implements IMainContract.Model{
     }
 
     @Override
-    public void getData(ArrayList<Artist> listArtist, Context context) {
+    public void getArtist(ArrayList<Artist> listArtist, Context context) {
             final String url = "https://ws.audioscrobbler.com/2.0/?method=geo.getTopArtists&country=colombia&api_key=cf2894b9c73a323e24f5c6a9aab1eb85&format=json";
 
             // Realizar solicitud HTTP utilizando Volley

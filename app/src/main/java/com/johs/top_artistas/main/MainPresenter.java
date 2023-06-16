@@ -1,14 +1,14 @@
-package com.johs.top_artistas;
+package com.johs.top_artistas.main;
 
 import android.content.Context;
 
-import com.johs.top_artistas.models.Artist;
+import com.johs.top_artistas.entity.Artist;
 
 import java.util.ArrayList;
 
 public class MainPresenter implements IMainContract.Presenter{
-    private IMainContract.View view;
-    private IMainContract.Model model;
+    private final IMainContract.View view;
+    private final IMainContract.Model model;
 
     public MainPresenter(IMainContract.View view) {
         this.view = view;
@@ -23,9 +23,9 @@ public class MainPresenter implements IMainContract.Presenter{
     }
 
     @Override
-    public void getData(ArrayList<Artist> listArtist, Context context) {
+    public void getArtist(ArrayList<Artist> listArtist, Context context) {
         if(view != null) {
-            model.getData(listArtist,context);
+            model.getArtist(listArtist,context);
         }
     }
 }

@@ -12,15 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.johs.top_artistas.ArtistInfoActivity;
+import com.johs.top_artistas.Songs.SongActivity;
 import com.johs.top_artistas.R;
-import com.johs.top_artistas.models.Artist;
+import com.johs.top_artistas.entity.Artist;
 import com.johs.top_artistas.utils.Utils;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder>{
 
@@ -72,7 +69,7 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
 
             itemView.setOnClickListener(view -> {
                 Context context = view.getContext();
-                Intent intent = new Intent(context, ArtistInfoActivity.class);
+                Intent intent = new Intent(context, SongActivity.class);
                 intent.putExtra("nameArtist", listaArtists.get(getAdapterPosition()).getName());
                 intent.putExtra("listenersArtist", listaArtists.get(getAdapterPosition()).getListeners());
                 intent.putExtra("imageArtist", listaArtists.get(getAdapterPosition()).getImage());

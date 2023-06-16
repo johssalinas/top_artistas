@@ -1,4 +1,4 @@
-package com.johs.top_artistas.models;
+package com.johs.top_artistas.entity;
 
 public class Song {
 

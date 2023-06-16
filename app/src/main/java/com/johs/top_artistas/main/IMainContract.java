@@ -1,8 +1,8 @@
-package com.johs.top_artistas;
+package com.johs.top_artistas.main;
 
 import android.content.Context;
 
-import com.johs.top_artistas.models.Artist;
+import com.johs.top_artistas.entity.Artist;
 
 import java.util.ArrayList;
 
@@ -13,10 +13,10 @@ public interface IMainContract {
     }
     interface Presenter {
         void showArtist(ArrayList<Artist> listArtist);
-        void getData(ArrayList<Artist> listArtist, Context context);
+        void getArtist(ArrayList<Artist> listArtist, Context context);
 
     }
     interface Model{
-        void getData(ArrayList<Artist> listArtist, Context context);
+        void getArtist(ArrayList<Artist> listArtist, Context context);
     }
 }

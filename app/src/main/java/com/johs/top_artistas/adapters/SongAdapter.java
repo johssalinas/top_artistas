@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.johs.top_artistas.R;
-import com.johs.top_artistas.models.Song;
+import com.johs.top_artistas.entity.Song;
 import com.johs.top_artistas.utils.Utils;
 
 
