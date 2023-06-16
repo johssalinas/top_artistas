@@ -1,6 +1,7 @@
 package com.johs.top_artistas.Songs;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -23,42 +24,39 @@ public class SongModel implements ISongContract.Model{
 
     @Override
     public void getSong(ArrayList<Song> listSong, String nameArtist, Context context) {
-        String url = "https://ws.audioscrobbler.com/2.0/?method=artist.getTopTracks&artist=" + nameArtist + "&api_key=cf2894b9c73a323e24f5c6a9aab1eb85&format=json";
+        final String url = "https://ws.audioscrobbler.com/2.0/?method=artist.getTopTracks&artist=" + nameArtist + "&api_key=cf2894b9c73a323e24f5c6a9aab1eb85&format=json";
+        final int numSongs = 5;
 
-        // Realizar solicitud HTTP utilizando Volley
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+        // Realiza solicitud HTTP utilizando Volley
+        final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 response -> {
-                    // Analizar la respuesta JSON para obtener el top de canciones
+                    // Analiza la respuesta JSON para obtener el top de canciones
                     try {
-                        JSONObject topTracks = response.getJSONObject("toptracks");
-                        JSONArray trackArray = topTracks.getJSONArray("track");
+                        final JSONObject topTracks = response.getJSONObject("toptracks");
+                        final JSONArray trackArray = topTracks.getJSONArray("track");
 
-                        // Recorrer el arreglo de canciones y obtener los datos relevantes
-                        for (int i = 0; i < 5; i++) {
-                            JSONObject track = trackArray.getJSONObject(i);
-                            String nombreCancion = track.getString("name");
-                            String image = track.getJSONArray("image").getJSONObject(2).getString("#text");
-                            String listeners = track.getString("listeners");
-                            String playcount = track.getString("playcount");
+                        // Recorre el arreglo de canciones y obtener los datos relevantes
+                        for (int i = 0; i < numSongs; i++) {
+                            final JSONObject track = trackArray.getJSONObject(i);
+                            final String nombreCancion = track.getString("name");
+                            final String image = track.getJSONArray("image").getJSONObject(2).getString("#text");
+                            final String listeners = track.getString("listeners");
+                            final String playcount = track.getString("playcount");
 
-                            // Crear un objeto Song y añadirlo a la lista de canciones
+                            // Crea un objeto Song y añadirlo a la lista de canciones
                             listSong.add(new Song(image, nombreCancion, listeners, playcount));
                         }
-                            presenter.showSongs(listSong);
-
-
+                        //LLama al presentador para que pinte el resultado
+                        presenter.showSongs(listSong);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 },
-                error -> {
-                    // Manejar errores de solicitud
-                    // ...
-                });
+                error -> Toast.makeText(context,"Falló de conexión", Toast.LENGTH_SHORT).show());
 
-        // Agregar la solicitud a la cola de solicitudes de Volley
-        RequestQueue queue = Volley.newRequestQueue(context);
+        // Agrega la solicitud a la cola de solicitudes de Volley
+        final RequestQueue queue = Volley.newRequestQueue(context);
         queue.add(request);
     }
 }

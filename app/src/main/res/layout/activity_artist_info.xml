@@ -4,14 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#212121"
+    android:background="@color/gray_background"
     tools:context=".Songs.SongActivity">
+
+    <ImageView
+        android:id="@+id/imageBack"
+        android:onClick="back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:srcCompat="?attr/homeAsUpIndicator"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"/>
 
     <include
         android:id="@+id/item_artist"
         layout="@layout/item_artist"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageBack"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerSong"
@@ -19,6 +29,4 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/item_artist"
         android:layout_marginTop="10dp" />
-
-
 </RelativeLayout>

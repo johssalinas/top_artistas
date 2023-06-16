@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">top_artistas</string>
     <string name="nombre">Artista</string>
+    <string name="Author">Johs Salinas</string>
     <string name="nombreCancion">Canción</string>
     <string name="reproducciones">Reproducciones</string>
     <string name="oyentes">Oyentes</string>
     <string name="imagen_artista">Imagen del Artista</string>
+    <string name="imagen_artist">Imagen del Artista</string>
     <string name="imagen_song">Imagen de la Canción</string>
     <string name="titleArtists">Top 10 Artistas más Escuchados</string>
 </resources>

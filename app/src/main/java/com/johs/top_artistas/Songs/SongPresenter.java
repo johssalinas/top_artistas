@@ -7,8 +7,8 @@ import com.johs.top_artistas.entity.Song;
 import java.util.ArrayList;
 
 public class SongPresenter implements ISongContract.Presenter{
-    private ISongContract.Model model;
-    private ISongContract.View view;
+    private final ISongContract.Model model;
+    private final ISongContract.View view;
 
     public SongPresenter(ISongContract.View view) {
         this.view = view;

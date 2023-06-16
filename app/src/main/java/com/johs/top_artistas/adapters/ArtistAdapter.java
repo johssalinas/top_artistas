@@ -48,7 +48,6 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
         holder.idRank.setText(listaArtists.get(position).getId());
     }
 
-
     @Override
     public int getItemCount() {
         return listaArtists.size();
@@ -73,6 +72,7 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
                 intent.putExtra("nameArtist", listaArtists.get(getAdapterPosition()).getName());
                 intent.putExtra("listenersArtist", listaArtists.get(getAdapterPosition()).getListeners());
                 intent.putExtra("imageArtist", listaArtists.get(getAdapterPosition()).getImage());
+                intent.putExtra("idArtist", listaArtists.get(getAdapterPosition()).getId());
                 context.startActivity(intent);
             });
         }

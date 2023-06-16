@@ -7,4 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray_background">#526D82</color>
+    <color name="white_subtitles">#b3b3b3</color>
+    <color name="dark_background">#27374D</color>
+    <color name="dark_card_song_background">#9DB2BF</color>
 </resources>

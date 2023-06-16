@@ -25,31 +25,30 @@ public class MainModel implements IMainContract.Model{
     @Override
     public void getArtist(ArrayList<Artist> listArtist, Context context) {
             final String url = "https://ws.audioscrobbler.com/2.0/?method=geo.getTopArtists&country=colombia&api_key=cf2894b9c73a323e24f5c6a9aab1eb85&format=json";
+            final int numArtist = 10;
 
-            // Realizar solicitud HTTP utilizando Volley
-            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+            // Realiza solicitud HTTP utilizando Volley
+            final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                     response -> {
-                        // Analizar la respuesta JSON para obtener los artistas
+                        // Analiza la respuesta JSON para obtener los artistas
                         try {
-                            JSONObject topArtists = response.getJSONObject("topartists");
-                            JSONArray artistArray = topArtists.getJSONArray("artist");
+                            final JSONObject topArtists = response.getJSONObject("topartists");
+                            final JSONArray artistArray = topArtists.getJSONArray("artist");
 
-                            // Limpiar la lista de artistas antes de agregar los nuevos
+                            // Limpia la lista de artistas antes de agregar los nuevos
                             listArtist.clear();
 
-                            // Recorrer el arreglo de artistas y obtener los nombres
-                            for (int i = 0; i < 10; i++) {
-                                JSONObject artist = artistArray.getJSONObject(i);
-                                String image = artist.getJSONArray("image").getJSONObject(4).getString("#text");
-                                String nombreArtista = artist.getString("name");
-                                String listeners = artist.getString("listeners");
+                            // Recorre el arreglo de artistas y obtener los nombres
+                            for (int i = 0; i < numArtist; i++) {
+                                final JSONObject artist = artistArray.getJSONObject(i);
+                                final String image = artist.getJSONArray("image").getJSONObject(4).getString("#text");
+                                final String nombreArtista = artist.getString("name");
+                                final String listeners = artist.getString("listeners");
                                 listArtist.add(new Artist(Integer.toString(i+1), image, nombreArtista, listeners));
                             }
 
-                            //LLamar al presentador para que pinte el resultado
+                            //LLama al presentador para que pinte el resultado
                             presenter.showArtist(listArtist);
-
-
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -57,8 +56,8 @@ public class MainModel implements IMainContract.Model{
                     },
                     error -> Toast.makeText(context,"Falló de conexión", Toast.LENGTH_SHORT).show());
 
-            // Agregar la solicitud a la cola de solicitudes de Volley
-            RequestQueue queue = Volley.newRequestQueue(context);
+            // Agrega la solicitud a la cola de solicitudes de Volley
+            final RequestQueue queue = Volley.newRequestQueue(context);
             queue.add(request);
     }
 }
