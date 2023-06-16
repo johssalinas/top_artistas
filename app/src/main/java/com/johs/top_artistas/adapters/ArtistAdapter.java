@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.johs.top_artistas.ArtistInfoActivity;
 import com.johs.top_artistas.R;
 import com.johs.top_artistas.models.Artist;
@@ -36,6 +37,11 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
 
     @Override
     public void onBindViewHolder(@NonNull ArtistAdapter.ArtistViewHolder holder, int position) {
+        Glide.with(context)
+                .load(listaArtists.get(position).getImage())
+                .placeholder(R.drawable.ic_launcher_background)
+                .error(R.drawable.ic_launcher_background)
+                .into(holder.imageArtist);
         holder.nameArtist.setText(listaArtists.get(position).getName());
         holder.listenersArtist.setText(listaArtists.get(position).getListeners());
         holder.idRank.setText(listaArtists.get(position).getId());

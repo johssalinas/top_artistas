@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.johs.top_artistas.R;
 import com.johs.top_artistas.models.Song;
 
@@ -37,6 +38,11 @@ public class SongAdapter  extends RecyclerView.Adapter<SongAdapter.SongViewHolde
 
     @Override
     public void onBindViewHolder(@NonNull SongAdapter.SongViewHolder holder, int position) {
+        Glide.with(context)
+                .load(listSong.get(position).getImage())
+                .placeholder(R.drawable.ic_launcher_background)
+                .error(R.drawable.ic_launcher_background)
+                .into(holder.imageSong);
         holder.nameSong.setText(listSong.get(position).getName());
         holder.playSong.setText(listSong.get(position).getPlays());
         holder.lisenSong.setText(listSong.get(position).getListeners());

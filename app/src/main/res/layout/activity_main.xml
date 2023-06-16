@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#212121"
     tools:context=".MainActivity">
 
     <TextView
@@ -13,14 +14,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:gravity="center"
+        android:textColor="#b3b3b3"
         android:text="@string/titleArtists"
         android:textSize="30sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerArtists"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginTop="30dp"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:clipChildren="true"
+        android:clipToPadding="false"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp" />
 </LinearLayout>

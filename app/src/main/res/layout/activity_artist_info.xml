@@ -4,20 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#212121"
     tools:context=".ArtistInfoActivity">
 
     <include
         android:id="@+id/item_artist"
         layout="@layout/item_artist"
         android:layout_width="match_parent"
-        android:layout_height="150dp" />
+        android:layout_height="wrap_content" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerSong"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/item_artist"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="10dp" />
 
 
 </RelativeLayout>

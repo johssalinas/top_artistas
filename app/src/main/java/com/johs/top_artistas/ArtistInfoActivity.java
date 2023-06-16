@@ -12,6 +12,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.johs.top_artistas.adapters.SongAdapter;
 import com.johs.top_artistas.models.Song;
 
@@ -49,6 +50,11 @@ public class ArtistInfoActivity extends AppCompatActivity {
         StringlistenersArtist = extras.getString("listenersArtist");
         StringimageArtist = extras.getString("imageArtist");
 
+        Glide.with(this)
+                .load(StringimageArtist)
+                .placeholder(R.drawable.ic_launcher_background)
+                .error(R.drawable.ic_launcher_background)
+                .into(imageArtist);
         nameArtist.setText(StringnameArtist);
         listenersArtist.setText(StringlistenersArtist);
 
