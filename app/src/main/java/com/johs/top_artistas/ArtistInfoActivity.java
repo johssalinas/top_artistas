@@ -24,39 +24,31 @@ import java.util.ArrayList;
 
 public class ArtistInfoActivity extends AppCompatActivity {
 
-    RecyclerView recyclerSong;
-    ArrayList<Song> listSong;
-    SongAdapter adapter;
-    TextView idRank;
-    ImageView imageArtist;
-    TextView nameArtist;
-    TextView listenersArtist;
-
-    String StringnameArtist;
-    String StringlistenersArtist;
-    String StringimageArtist;
+    private RecyclerView recyclerSong;
+    private ArrayList<Song> listSong;
+    private SongAdapter adapter;
+    private String StringnameArtist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_artist_info);
         recyclerSong = findViewById(R.id.recyclerSong);
-        imageArtist = findViewById(R.id.imageArtist);
-        nameArtist = findViewById(R.id.nameArtist);
-        listenersArtist = findViewById(R.id.listenersArtist);
-        idRank = findViewById(R.id.idRank);
+        ImageView imageArtist = findViewById(R.id.imageArtist);
+        TextView nameArtist = findViewById(R.id.nameArtist);
+        TextView listenersArtist = findViewById(R.id.listenersArtist);
         Bundle extras = getIntent().getExtras();
         StringnameArtist = extras.getString("nameArtist");
-        StringlistenersArtist = extras.getString("listenersArtist");
-        StringimageArtist = extras.getString("imageArtist");
+        String stringlistenersArtist = extras.getString("listenersArtist");
+        String stringimageArtist = extras.getString("imageArtist");
 
         Glide.with(this)
-                .load(StringimageArtist)
+                .load(stringimageArtist)
                 .placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.ic_launcher_background)
                 .into(imageArtist);
         nameArtist.setText(StringnameArtist);
-        listenersArtist.setText(StringlistenersArtist);
+        listenersArtist.setText(stringlistenersArtist);
 
 
 

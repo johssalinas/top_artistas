@@ -32,19 +32,19 @@
             android:layout_toEndOf="@id/imageArtist"
             android:text="@string/nombre"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="11sp"
+            />
 
         <TextView
             android:id="@+id/nameArtist"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/textArtist"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="4dp"
             android:layout_toEndOf="@id/imageArtist"
             android:textColor="#FFFFFF"
-            android:textSize="13sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textlistener"
@@ -56,19 +56,18 @@
             android:layout_toEndOf="@id/imageArtist"
             android:text="@string/oyentes"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textSize="11sp"/>
 
         <TextView
             android:id="@+id/listenersArtist"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/textlistener"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="4dp"
             android:layout_toEndOf="@id/imageArtist"
             android:textColor="#FFFFFF"
-            android:textSize="13sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/idRank"

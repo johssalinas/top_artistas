@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">top_artistas</string>
-    <string name="nombre">Nombre</string>
+    <string name="nombre">Artista</string>
+    <string name="nombreCancion">Canción</string>
     <string name="reproducciones">Reproducciones</string>
     <string name="oyentes">Oyentes</string>
     <string name="imagen_artista">Imagen del Artista</string>

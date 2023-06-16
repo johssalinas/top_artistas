@@ -20,8 +20,8 @@ import java.util.ArrayList;
 
 public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder>{
 
-    ArrayList<Artist> listaArtists;
-    Context context;
+    private final ArrayList<Artist> listaArtists;
+    private final Context context;
 
     public ArtistAdapter(ArrayList<Artist> listaArtists, Context context) {
         this.listaArtists = listaArtists;
@@ -54,10 +54,10 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
     }
 
     public class ArtistViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageArtist;
-        TextView nameArtist;
-        TextView listenersArtist;
-        TextView idRank;
+        private final ImageView imageArtist;
+        private final TextView nameArtist;
+        private final TextView listenersArtist;
+        private final TextView idRank;
 
         public ArtistViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -66,16 +66,13 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
             listenersArtist = itemView.findViewById(R.id.listenersArtist);
             idRank = itemView.findViewById(R.id.idRank);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Context context = view.getContext();
-                    Intent intent = new Intent(context, ArtistInfoActivity.class);
-                    intent.putExtra("nameArtist", listaArtists.get(getAdapterPosition()).getName());
-                    intent.putExtra("listenersArtist", listaArtists.get(getAdapterPosition()).getListeners());
-                    intent.putExtra("imageArtist", listaArtists.get(getAdapterPosition()).getImage());
-                    context.startActivity(intent);
-                }
+            itemView.setOnClickListener(view -> {
+                Context context = view.getContext();
+                Intent intent = new Intent(context, ArtistInfoActivity.class);
+                intent.putExtra("nameArtist", listaArtists.get(getAdapterPosition()).getName());
+                intent.putExtra("listenersArtist", listaArtists.get(getAdapterPosition()).getListeners());
+                intent.putExtra("imageArtist", listaArtists.get(getAdapterPosition()).getImage());
+                context.startActivity(intent);
             });
         }
     }

@@ -1,7 +1,6 @@
 package com.johs.top_artistas.adapters;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +14,13 @@ import com.bumptech.glide.Glide;
 import com.johs.top_artistas.R;
 import com.johs.top_artistas.models.Song;
 
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 public class SongAdapter  extends RecyclerView.Adapter<SongAdapter.SongViewHolder>{
 
-    ArrayList<Song> listSong;
-    Context context;
+    private final ArrayList<Song> listSong;
+    private final Context context;
 
     public SongAdapter(ArrayList<Song> listSong, Context context) {
         this.listSong = listSong;
@@ -53,11 +51,11 @@ public class SongAdapter  extends RecyclerView.Adapter<SongAdapter.SongViewHolde
         return listSong.size();
     }
 
-    public class SongViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageSong;
-        TextView nameSong;
-        TextView playSong;
-        TextView lisenSong;
+    public static class SongViewHolder extends RecyclerView.ViewHolder {
+        private final ImageView imageSong;
+        private final TextView nameSong;
+        private final TextView playSong;
+        private final TextView lisenSong;
 
         public SongViewHolder(@NonNull View itemView) {
             super(itemView);
