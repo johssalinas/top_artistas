@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.johs.top_artistas.R;
 import com.johs.top_artistas.models.Song;
+import com.johs.top_artistas.utils.Utils;
 
 
 import java.util.ArrayList;
@@ -42,8 +43,8 @@ public class SongAdapter  extends RecyclerView.Adapter<SongAdapter.SongViewHolde
                 .error(R.drawable.ic_launcher_background)
                 .into(holder.imageSong);
         holder.nameSong.setText(listSong.get(position).getName());
-        holder.playSong.setText(listSong.get(position).getPlays());
-        holder.lisenSong.setText(listSong.get(position).getListeners());
+        holder.playSong.setText(Utils.formatNumberWithThousands(listSong.get(position).getPlays()));
+        holder.lisenSong.setText(Utils.formatNumberWithThousands(listSong.get(position).getListeners()));
     }
 
     @Override

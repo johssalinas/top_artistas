@@ -27,8 +27,7 @@
             android:layout_toEndOf="@id/imageSong"
             android:layout_marginStart="16dp"
             android:text="@string/nombreCancion"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:textSize="12sp"
             android:textColor="@android:color/white" />
 
         <TextView
@@ -37,11 +36,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/title1TextView"
             android:layout_toEndOf="@id/imageSong"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:layout_marginStart="16dp"
             android:text="@string/reproducciones"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:textSize="12sp"
             android:textColor="@android:color/white" />
 
         <TextView
@@ -53,8 +51,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginStart="16dp"
             android:text="@string/oyentes"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:textSize="12sp"
             android:textColor="@android:color/white" />
 
         <TextView
@@ -65,6 +62,7 @@
             android:layout_alignBaseline="@id/title1TextView"
             android:layout_marginStart="16dp"
             android:textSize="14sp"
+            android:textStyle="bold"
             android:textColor="@android:color/darker_gray" />
 
         <TextView
@@ -75,6 +73,7 @@
             android:layout_alignBaseline="@id/title2TextView"
             android:layout_marginStart="16dp"
             android:textSize="14sp"
+            android:textStyle="bold"
             android:textColor="@android:color/darker_gray" />
 
         <TextView
@@ -85,6 +84,7 @@
             android:layout_alignBaseline="@id/title3TextView"
             android:layout_marginStart="16dp"
             android:textSize="14sp"
+            android:textStyle="bold"
             android:textColor="@android:color/darker_gray" />
 
     </RelativeLayout>

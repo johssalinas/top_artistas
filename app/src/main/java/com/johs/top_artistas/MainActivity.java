@@ -23,80 +23,29 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements IMainContract.View{
 
     private RecyclerView recyclerArtists;
     private ArrayList<Artist> listArtist;
     private ArtistAdapter adapter;
+    private IMainContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         recyclerArtists = findViewById(R.id.recyclerArtists);
 
         listArtist = new ArrayList<>();
+        presenter = new MainPresenter(this);
 
-        //Get
-        if (!isNetworkConnected()) {
-            return;
-        }
-
-        obtenerArtistasTop();
+        presenter.getData(listArtist, this);
     }
 
-// Dentro de tu Activity o Fragment correspondiente a la primera pantalla
-
-    // Método para obtener la lista de artistas top
-    private void obtenerArtistasTop() {
-        final String url = "https://ws.audioscrobbler.com/2.0/?method=geo.getTopArtists&country=colombia&api_key=cf2894b9c73a323e24f5c6a9aab1eb85&format=json";
-
-        // Realizar solicitud HTTP utilizando Volley (asegúrate de tener la dependencia agregada en tu archivo build.gradle)
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                response -> {
-                    // Analizar la respuesta JSON para obtener los artistas
-                    try {
-                        JSONObject topArtists = response.getJSONObject("topartists");
-                        JSONArray artistArray = topArtists.getJSONArray("artist");
-
-                        // Limpiar la lista de artistas antes de agregar los nuevos
-                        listArtist.clear();
-
-                        // Recorrer el arreglo de artistas y obtener los nombres
-                        for (int i = 0; i < 10; i++) {
-                            JSONObject artist = artistArray.getJSONObject(i);
-                            String image = artist.getJSONArray("image").getJSONObject(4).getString("#text");
-                            String nombreArtista = artist.getString("name");
-                            String listeners = artist.getString("listeners");
-                            listArtist.add(new Artist(Integer.toString(i+1), image, nombreArtista, listeners));
-                        }
-
-                        // Mostrar la lista de artistas en tu RecyclerView
-                        adapter = new ArtistAdapter(listArtist, MainActivity.this);
-                        recyclerArtists.setAdapter(adapter);
-                        recyclerArtists.setLayoutManager(new LinearLayoutManager(MainActivity.this, RecyclerView.VERTICAL, false));
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                },
-                error -> {
-                    //TODO
-                    // Manejar errores de solicitud
-                    // ...
-                });
-
-        // Agregar la solicitud a la cola de solicitudes de Volley
-        RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
-        queue.add(request);
-    }
-
-
-    // Método para verificar la conectividad a Internet
-    private boolean isNetworkConnected() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-        return networkInfo != null && networkInfo.isConnected();
+    @Override
+    public void showArtist(ArrayList<Artist> listArtist) {
+        adapter = new ArtistAdapter(listArtist, MainActivity.this);
+        recyclerArtists.setAdapter(adapter);
+        recyclerArtists.setLayoutManager(new LinearLayoutManager(MainActivity.this, RecyclerView.VERTICAL, false));
     }
 }

@@ -15,8 +15,12 @@ import com.bumptech.glide.Glide;
 import com.johs.top_artistas.ArtistInfoActivity;
 import com.johs.top_artistas.R;
 import com.johs.top_artistas.models.Artist;
+import com.johs.top_artistas.utils.Utils;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder>{
 
@@ -43,10 +47,10 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
                 .error(R.drawable.ic_launcher_background)
                 .into(holder.imageArtist);
         holder.nameArtist.setText(listaArtists.get(position).getName());
-        holder.listenersArtist.setText(listaArtists.get(position).getListeners());
+        holder.listenersArtist.setText(Utils.formatNumberWithThousands(listaArtists.get(position).getListeners()));
         holder.idRank.setText(listaArtists.get(position).getId());
-
     }
+
 
     @Override
     public int getItemCount() {
